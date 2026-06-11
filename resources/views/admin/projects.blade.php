@@ -43,9 +43,9 @@
                     @forelse($projects as $project)
                         <tr>
                             <td>
-                                <div style="font-weight: 600; color: #0ea5e9;">{{ $project->title }}</div>
-                                <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;">
-                                    <i class='bx bx-map' style="vertical-align: middle;"></i> {{ $project->location ?? 'No location set' }}
+                                <div style="font-weight: 600; color: #3E2723;">{{ $project->title }}</div>
+                                <div style="font-size: 0.78rem; color: #D97706; margin-top: 2px;">
+                                    <i class='bx bx-map' style="vertical-align: middle; color: #B45309;"></i> {{ $project->location ?? 'No location set' }}
                                 </div>
                             </td>
                             <td>
@@ -57,17 +57,29 @@
                                 <div style="font-size: 0.75rem; color: var(--text-secondary);">Style: {{ $project->style ?? 'Modern' }} | {{ $project->floors ?? 1 }} Floors</div>
                             </td>
                             <td>
-                                <div style="font-weight: 600;">Rp {{ number_format($project->budget, 0, ',', '.') }}</div>
+                                <div style="font-weight: 600; color: #3E2723;">Rp {{ number_format($project->budget, 0, ',', '.') }}</div>
                             </td>
                             <td>
                                 <span class="badge {{ $project->status }}">{{ $project->status }}</span>
                             </td>
                             <td>
                                 <div style="display: flex; align-items: center; gap: 8px; width: 120px;">
-                                    <div style="flex: 1; background: rgba(255, 255, 255, 0.05); height: 8px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border-color);">
-                                        <div style="width: {{ $project->progress_percent ?? 0 }}%; background: var(--primary-grad); height: 100%; border-radius: 4px;"></div>
+                                    @php
+                                        $pct = $project->progress_percent ?? 0;
+                                        if ($pct < 25) {
+                                            $progColor = '#EBCAB6'; // Stage 1 (pudar)
+                                        } elseif ($pct < 50) {
+                                            $progColor = '#D49A7A'; // Stage 2
+                                        } elseif ($pct < 75) {
+                                            $progColor = '#B55B36'; // Stage 3
+                                        } else {
+                                            $progColor = '#8C2B0B'; // Stage 4 (tebal)
+                                        }
+                                    @endphp
+                                    <div style="flex: 1; background: #F8F5F2; height: 8px; border-radius: 4px; overflow: hidden; border: 1px solid var(--border-color);">
+                                        <div style="width: {{ $pct }}%; background: {{ $progColor }}; height: 100%; border-radius: 4px; transition: width 0.3s ease;"></div>
                                     </div>
-                                    <span style="font-size: 0.8rem; font-weight: 600; min-width: 32px; text-align: right;">{{ $project->progress_percent ?? 0 }}%</span>
+                                    <span style="font-size: 0.8rem; font-weight: 600; min-width: 32px; text-align: right; color: {{ $progColor }};">{{ $pct }}%</span>
                                 </div>
                             </td>
                             <td>

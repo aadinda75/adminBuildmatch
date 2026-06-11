@@ -12,6 +12,9 @@
     <div class="login-container">
         <div class="login-card">
             <div class="brand-header">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: #8C2B0B; overflow: hidden; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+                    <img src="/images/logo.png" alt="BuildMatch Logo" style="width: 100%; height: 100%; object-fit: contain; mix-blend-mode: screen;">
+                </div>
                 <div class="brand-logo">Build<span>Match</span></div>
                 <div class="brand-subtitle">Admin Control Center</div>
             </div>
@@ -51,7 +54,8 @@
                                placeholder="••••••••" 
                                required 
                                autocomplete="current-password">
-                        <i class='bx bx-lock-alt'></i>
+                        <i class='bx bx-lock-alt' id="icon-lock"></i>
+                        <i class='bx bx-hide' id="toggle-password" onclick="togglePassword()" style="right: 14px; left: auto; cursor: pointer; color: #A68A7D; transition: color 0.2s;"></i>
                     </div>
                     @error('password')
                         <div class="error-message">
@@ -74,4 +78,20 @@
     </div>
 
 </body>
+
+<script>
+    function togglePassword() {
+        const input = document.getElementById('password');
+        const icon  = document.getElementById('toggle-password');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.replace('bx-hide', 'bx-show');
+            icon.style.color = '#8C2B0B';
+        } else {
+            input.type = 'password';
+            icon.classList.replace('bx-show', 'bx-hide');
+            icon.style.color = '#A68A7D';
+        }
+    }
+</script>
 </html>

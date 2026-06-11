@@ -7,8 +7,10 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\PaymentController;
 
-// Redirect root to admin dashboard (which will prompt login if guest)
-Route::redirect('/', '/admin/dashboard');
+// Landing Page - root route
+Route::get('/', function () {
+    return view('landing');
+})->name('landing');
 
 Route::prefix('admin')->group(function () {
     
@@ -17,6 +19,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
         Route::post('/login', [AuthController::class, 'login']);
     });
+
 
     // Auth Routes
     Route::middleware('auth')->group(function () {

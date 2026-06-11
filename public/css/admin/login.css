@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-    --bg-color: #f8fafc;
-    --card-bg: rgba(255, 255, 255, 0.85);
-    --border-color: rgba(226, 232, 240, 0.8);
-    --primary-grad: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    --primary-glow: 0 0 15px rgba(59, 130, 246, 0.25);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
+    --bg-color: #F8F5F2;
+    --card-bg: rgba(255, 255, 255, 1);
+    --border-color: rgba(235, 202, 182, 0.4);
+    --primary-color: #8C2B0B;
+    --primary-grad: linear-gradient(135deg, #8C2B0B 0%, #732309 100%);
+    --primary-glow: 0 0 15px rgba(140, 43, 11, 0.25);
+    --text-primary: #333333;
+    --text-secondary: #666666;
     --danger-color: #ef4444;
+    --accent-circle: #EBCAB6;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -28,16 +30,16 @@ body {
     position: relative;
 }
 
-/* Blurry circle backgrounds */
+/* Background circles */
 body::before {
     content: "";
     position: absolute;
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0) 70%);
+    background: radial-gradient(circle, rgba(235, 202, 182, 0.6) 0%, rgba(235, 202, 182, 0) 70%);
     top: 5%;
     left: 10%;
-    filter: blur(60px);
+    filter: blur(40px);
     z-index: -1;
 }
 
@@ -46,10 +48,10 @@ body::after {
     position: absolute;
     width: 450px;
     height: 450px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0) 70%);
+    background: radial-gradient(circle, rgba(140, 43, 11, 0.1) 0%, rgba(140, 43, 11, 0) 70%);
     bottom: 5%;
     right: 10%;
-    filter: blur(70px);
+    filter: blur(50px);
     z-index: -1;
 }
 
@@ -63,13 +65,10 @@ body::after {
 .login-card {
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 20px;
+    border-radius: 32px;
     padding: 40px 30px;
     box-shadow: 
-        0 10px 25px -5px rgba(0, 0, 0, 0.03), 
-        0 8px 10px -6px rgba(0, 0, 0, 0.02),
+        0 10px 30px rgba(0, 0, 0, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
@@ -79,22 +78,20 @@ body::after {
 }
 
 .brand-logo {
-    font-size: 1.9rem;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 6px;
     letter-spacing: -0.5px;
 }
 
 .brand-logo span {
-    background: var(--primary-grad);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--primary-color);
 }
 
 .brand-subtitle {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 14px;
     font-weight: 400;
 }
 
@@ -106,9 +103,9 @@ body::after {
 .form-label {
     display: block;
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: 14px;
     font-weight: 500;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .input-wrapper {
@@ -117,22 +114,22 @@ body::after {
 
 .input-wrapper i {
     position: absolute;
-    left: 14px;
+    left: 16px;
     top: 50%;
     transform: translateY(-50%);
     color: #94a3b8;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .form-control {
     width: 100%;
     background: #ffffff;
-    border: 1px solid #cbd5e1;
-    border-radius: 10px;
-    padding: 11px 16px 11px 40px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 44px 14px 44px;
     color: var(--text-primary);
-    font-size: 0.92rem;
+    font-size: 15px;
     outline: none;
     transition: all 0.3s ease;
 }
@@ -142,20 +139,20 @@ body::after {
 }
 
 .form-control:focus {
-    border-color: #3b82f6;
+    border-color: var(--primary-color);
     box-shadow: var(--primary-glow);
 }
 
 .form-control:focus + i {
-    color: #3b82f6;
+    color: var(--primary-color);
 }
 
 .form-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
-    font-size: 0.85rem;
+    margin-bottom: 32px;
+    font-size: 14px;
 }
 
 .remember-me {
@@ -167,28 +164,29 @@ body::after {
 }
 
 .remember-me input {
-    accent-color: #3b82f6;
-    width: 15px;
-    height: 15px;
+    accent-color: var(--primary-color);
+    width: 16px;
+    height: 16px;
     cursor: pointer;
 }
 
 .btn-submit {
     width: 100%;
-    background: var(--primary-grad);
+    background: var(--primary-color);
     border: none;
-    border-radius: 10px;
-    padding: 12px;
+    border-radius: 16px;
+    padding: 16px;
     color: #ffffff;
-    font-size: 0.92rem;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
 }
 
 .btn-submit:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    background: var(--primary-grad);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(140, 43, 11, 0.2);
 }
 
 .btn-submit:active {
@@ -197,8 +195,8 @@ body::after {
 
 .error-message {
     color: var(--danger-color);
-    font-size: 0.8rem;
-    margin-top: 5px;
+    font-size: 13px;
+    margin-top: 6px;
     display: flex;
     align-items: center;
     gap: 4px;

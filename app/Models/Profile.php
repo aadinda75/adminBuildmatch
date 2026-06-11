@@ -13,6 +13,7 @@ class Profile extends Model
 
     protected $keyType = 'string';
     public $incrementing = false;
+    public const UPDATED_AT = null;
 
     protected $fillable = [
         'id',

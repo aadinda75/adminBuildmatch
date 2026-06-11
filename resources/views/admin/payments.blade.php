@@ -41,7 +41,7 @@
                     @forelse($payments as $payment)
                         <tr>
                             <td>
-                                <div style="font-weight: 600; color: #0ea5e9;">{{ $payment->project->title ?? 'N/A' }}</div>
+                                <div style="font-weight: 600; color: #D97706;">{{ $payment->project->title ?? 'N/A' }}</div>
                                 <div style="font-size: 0.85rem; font-weight: 500; margin-top: 4px; color: var(--text-primary);">
                                     Milestone: {{ $payment->name }}
                                 </div>
@@ -52,8 +52,8 @@
                                 <div style="font-size: 0.75rem; color: var(--text-secondary);">{{ $payment->vendor->company_name ?? 'Individual' }}</div>
                             </td>
                             <td>
-                                <div style="font-weight: 600; color: #10b981;">{{ $payment->percentage }}%</div>
-                                <div style="font-size: 0.88rem; font-weight: 500;">Rp {{ number_format($payment->amount, 0, ',', '.') }}</div>
+                                <div style="font-weight: 600; color: #B55B36;">{{ $payment->percentage }}%</div>
+                                <div style="font-size: 0.88rem; font-weight: 500; color: #3E2723;">Rp {{ number_format($payment->amount, 0, ',', '.') }}</div>
                             </td>
                             <td>
                                 <span class="badge {{ $payment->status }}">{{ $payment->status }}</span>

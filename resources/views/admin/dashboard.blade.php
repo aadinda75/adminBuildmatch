@@ -135,7 +135,7 @@
                             @foreach($recentProjects as $project)
                                 <tr>
                                     <td>
-                                        <a href="{{ route('admin.projects.show', $project->id) }}" style="color: #2563eb; font-weight: 500; text-decoration: none;">
+                                        <a href="{{ route('admin.projects.show', $project->id) }}" style="color: #3E2723; font-weight: 600; text-decoration: none;">
                                             {{ Str::limit($project->title, 25) }}
                                         </a>
                                     </td>
@@ -209,14 +209,14 @@
                     label: 'User Registrations',
                     data: [{{ $clientCount }}, {{ $vendorCount }}, {{ $architectCount }}],
                     backgroundColor: [
-                        'rgba(59, 130, 246, 0.6)',
-                        'rgba(139, 92, 246, 0.6)',
-                        'rgba(249, 115, 22, 0.6)'
+                        'rgba(140, 43, 11, 0.8)',
+                        'rgba(181, 91, 54, 0.8)',
+                        'rgba(235, 202, 182, 0.8)'
                     ],
                     borderColor: [
-                        'rgba(59, 130, 246, 1)',
-                        'rgba(139, 92, 246, 1)',
-                        'rgba(249, 115, 22, 1)'
+                        'rgba(140, 43, 11, 1)',
+                        'rgba(181, 91, 54, 1)',
+                        'rgba(235, 202, 182, 1)'
                     ],
                     borderWidth: 1,
                     borderRadius: 6
@@ -251,10 +251,10 @@
                 datasets: [{
                     data: [{{ $openProjects }}, {{ $activeProjects }}, {{ $completedProjects }}, {{ $cancelledProjects }}],
                     backgroundColor: [
-                        '#3b82f6',
-                        '#f59e0b',
-                        '#10b981',
-                        '#ef4444'
+                        '#EBCAB6',
+                        '#B55B36',
+                        '#8C2B0B',
+                        '#4A4A4A'
                     ],
                     borderWidth: 0
                 }]
